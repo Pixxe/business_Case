@@ -49,9 +49,11 @@ security:
 
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
-    access_control:
-        - { path: ^/api, roles: ROLE_ADMIN }
-        - { path: ^/api/(login_check)|(register), roles: PUBLIC_ACCESS }
+
+    #Mettre en commentaire pour ne pas avoir a rentrer le token a chaque fois
+    # access_control:
+    #     - { path: ^/api, roles: ROLE_ADMIN }
+    #     - { path: ^/api/(login_check)|(register), roles: PUBLIC_ACCESS }
 
 
 when@test:

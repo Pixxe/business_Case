@@ -41,8 +41,12 @@ class CommandConversionController extends AbstractController
         dump($numberOfBasket);
         dump($numberOfCommand);
 
-        $result = ($numberOfBasket * 100) / $numberOfCommand;
-
-        return $this->json($result);
+        $erreur = 0;
+        if ($numberOfCommand !== 0) {
+            $result = ($numberOfBasket * 100) / $numberOfCommand;
+            return $this->json($result);
+        } else {
+            return $this->json($erreur);
+        }
     }
 }
