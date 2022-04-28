@@ -1,0 +1,29 @@
+App\Entity\Category:
+  categoryChien: 
+    label: 'Chien'
+  categoryChat: 
+    label: 'Chat'
+
+  category1:
+    label: "Alimentation Chien"
+    categoryParent: '@categoryChien'
+
+  category2:
+    label: "Accessoire Chien"
+    categoryParent: '@categoryChien'
+  
+  category3:
+    label: "Hygiene Chien"
+    categoryParent: '@categoryChien'
+
+  category4:
+    label: "Alimentation Chat"
+    categoryParent: '@categoryChat'
+
+  category5:
+    label: "Accessoire Chat"
+    categoryParent: '@categoryChat'
+  
+  category6:
+    label: "Hygiene Chat"
+    categoryParent: '@categoryChat'

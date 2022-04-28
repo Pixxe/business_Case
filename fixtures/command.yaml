@@ -1,0 +1,22 @@
+parameters:
+  statusTab: [100, 200 , 300, 400, 500]
+
+# 100 : paniers en cours (non payé)
+# 200 : payé et accepté
+# 300 : commandé, expédié
+# 400 : remboursé
+# 500 : annulé
+
+# Montant total des ventes : status 200 et 300
+# Nb de Panier : 100 uniquement
+
+
+App\Entity\Command:
+  command{1..50}:
+    totalPrice: '<numberBetween(1,500)>'
+    numCommand: '<numberBetween(1,50)>'
+    CreatedAt: '<dateTimeBetween("-1000 days", "now")>'
+    status: "<randomElement($statusTab)>"
+    address: '@address*'
+    products: '<numberBetween(1,10)>x @product*'
+    user: '@user*'
