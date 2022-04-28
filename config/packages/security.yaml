@@ -28,7 +28,7 @@ security:
                 username_path: 'email' # Add this ONLY if you want to change property used in JSON body of the login request
 
         api:
-            pattern:   ^/api
+            pattern:   ^/api/
             stateless: true
             jwt: ~
         # END HERE

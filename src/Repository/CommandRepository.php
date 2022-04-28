@@ -107,11 +107,13 @@ class CommandRepository extends ServiceEntityRepository
     public function findRecurrenceBasketCustomerBetweenDates($minDate, $maxDate)
     {
         return $this->createQueryBuilder('rbc')
-            ->where('rbc.CreatedAt > :date_min')
             ->innerJoin('rbc.user', 'u')
+            ->where('rbc.CreatedAt > :date_min')
             ->andWhere('rbc.CreatedAt < :date_max')
             ->setParameter('date_min', $minDate)
             ->setParameter('date_max', $maxDate)
             ->getQuery()->getResult();
     }
-}
+
+}   
+
