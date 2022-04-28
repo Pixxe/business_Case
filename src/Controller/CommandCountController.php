@@ -34,6 +34,6 @@ class CommandCountController extends AbstractController
         count($commandEntities);
         dump($commandEntities);
 
-        return $this->json(count($commandEntities));
+        return $this->json(['data' => count($commandEntities)]);
     }
 }

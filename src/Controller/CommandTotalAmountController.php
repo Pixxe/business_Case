@@ -43,6 +43,6 @@ class CommandTotalAmountController extends AbstractController
 
         dump($command);
 
-        return $this->json($command);
+        return $this->json(['data' => $command]);
     }
 }

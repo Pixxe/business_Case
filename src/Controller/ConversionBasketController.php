@@ -23,7 +23,7 @@ class ConversionBasketController extends AbstractController
     }
     public function __invoke(Request $request): Response
     {
-        
+
         $minDateString = $request->query->get('min_date');
         $maxDateString = $request->query->get('max_date');
 
@@ -45,6 +45,6 @@ class ConversionBasketController extends AbstractController
 
         $basketConversion = ((count($basketEntities) * 100) / count($visitEntities));
 
-        return $this->json($basketConversion);
+        return $this->json(['data' => $basketConversion]);
     }
 }

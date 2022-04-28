@@ -37,6 +37,6 @@ class RecurrenceCommandController extends AbstractController
         $averageBasket = 0;
         $basket = count($averageBasketEntities);
 
-        return $this->json($averageBasket);
+        return $this->json(['data' => $averageBasket]);
     }
 }

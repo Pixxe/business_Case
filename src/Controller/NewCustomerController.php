@@ -38,6 +38,6 @@ class NewCustomerController extends AbstractController
 
 
 
-        return $this->json(count($newCustomerEntities));
+        return $this->json(['data' => count($newCustomerEntities)]);
     }
 }
