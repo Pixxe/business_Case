@@ -8,20 +8,17 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class AverageBasketController extends AbstractController
+class RecurrenceCommandController extends AbstractController
 {
     private CommandRepository $commandRepository;
 
     //On met le repoitory dans le constructor
     public function __construct(CommandRepository $commandRepository)
     {
-
         $this->commandRepository = $commandRepository;
     }
     public function __invoke(Request $request): Response
     {
-        dump($this->getUser());
-
         $minDateString = $request->query->get('min_date');
         $maxDateString = $request->query->get('max_date');
 
@@ -39,14 +36,6 @@ class AverageBasketController extends AbstractController
 
         $averageBasket = 0;
         $basket = count($averageBasketEntities);
-
-        foreach ($averageBasketEntities as $objectAverage) {
-            $averageBasket += ($objectAverage->getTotalPrice()) / $basket;
-        }
-
-        dump($averageBasket);
-
-
 
         return $this->json($averageBasket);
     }

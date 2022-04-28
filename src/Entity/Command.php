@@ -19,6 +19,7 @@ use App\Controller\CommandConversionController;
 use App\Controller\CommandCountController;
 use App\Controller\CommandTotalAmountController;
 use App\Controller\ConversionBasketController;
+use App\Controller\RecurrenceCommandController;
 
 #[ORM\Entity(repositoryClass: CommandRepository::class)]
 #[ApiResource(
@@ -41,7 +42,7 @@ use App\Controller\ConversionBasketController;
         ],
         'get_average_basket' => [
             'method' => 'GET',
-            'path' =>'/command/get_average_basket',
+            'path' => '/command/get_average_basket',
             'controller' => AverageBasketController::class
         ],
         'get_percent_conversion_basket' => [
@@ -53,6 +54,11 @@ use App\Controller\ConversionBasketController;
             'method' => 'GET',
             'path' => '/command/get_percent_command_conversion',
             'controller' => CommandConversionController::class
+        ],
+        'get_recurrence_command_client_from_dates' => [
+            'method' => 'GET',
+            'path' => '/command/get_recurrence_command_client_from_dates',
+            'controller' => RecurrenceCommandController::class
         ]
 
     ],
