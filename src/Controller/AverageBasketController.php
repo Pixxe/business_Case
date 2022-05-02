@@ -48,6 +48,6 @@ class AverageBasketController extends AbstractController
 
 
 
-        return $this->json($averageBasket);
+        return $this->json(['data' => $averageBasket]);
     }
 }

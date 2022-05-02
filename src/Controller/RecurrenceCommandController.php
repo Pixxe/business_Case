@@ -30,19 +30,13 @@ class RecurrenceCommandController extends AbstractController
         dump($minDate);
         dump($maxDate);
 
-        $RecurrenceCommandNewCustomer = $this->commandRepository->findRecurrenceBasketNewCustomerBetweenDates($minDate, $maxDate);
-        $RecurrenceCommandOldCustomer = $this->commandRepository->findRecurrenceBasketOldCustomerBetweenDates($minDate, $maxDate);
+        $averageBasketEntities = $this->commandRepository->findBasketAverage($minDate, $maxDate);
+        count($averageBasketEntities);
+        dump($averageBasketEntities);
 
-        dump($RecurrenceCommandOldCustomer);
-        dump($RecurrenceCommandNewCustomer);
+        $averageBasket = 0;
+        $basket = count($averageBasketEntities);
 
-        $recurrence = 0;
-
-        if (count($RecurrenceCommandNewCustomer) !== 0) {
-            $result = ((count($RecurrenceCommandNewCustomer) - count($RecurrenceCommandOldCustomer)) / count($RecurrenceCommandNewCustomer)) * 100;
-            return $this->json($result);
-        } else {
-            return $this->json($recurrence);
-        }
+        return $this->json(['data' => $averageBasket]);
     }
 }

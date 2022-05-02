@@ -43,12 +43,8 @@ class ConversionBasketController extends AbstractController
         count($visitEntities);
         dump($visitEntities);
 
-        $erreur = 0;
-        if (count($visitEntities) !== 0) {
-            $basketConversion = ((count($basketEntities) * 100) / count($visitEntities));
-            return $this->json($basketConversion);
-        } else {
-            return $this->json($erreur);
-        }
+        $basketConversion = ((count($basketEntities) * 100) / count($visitEntities));
+
+        return $this->json(['data' => $basketConversion]);
     }
 }

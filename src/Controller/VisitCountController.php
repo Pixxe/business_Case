@@ -19,8 +19,8 @@ class VisitCountController extends AbstractController
 
     public function __invoke(Request $request): Response
     {
-        $minDateString = $request->query->get('date_min');
-        $maxDateString = $request->query->get('date_max');
+        $minDateString = $request->query->get('min_date');
+        $maxDateString = $request->query->get('max_date');
 
         $minDate = new \DateTime($minDateString);
         $maxDate = new \DateTime($maxDateString);
@@ -32,8 +32,6 @@ class VisitCountController extends AbstractController
         count($visitEntities);
         dump($visitEntities);
 
-        return $this->json(count($visitEntities));
+        return $this->json(['data' => count($visitEntities)]);
     }
-
-    
 }

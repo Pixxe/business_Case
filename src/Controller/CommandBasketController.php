@@ -36,6 +36,6 @@ class CommandBasketController extends AbstractController
 
 
 
-        return $this->json(count($basketEntities));
+        return $this->json(['data' => count($basketEntities)]);
     }
 }
