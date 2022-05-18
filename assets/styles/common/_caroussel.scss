@@ -1,0 +1,14 @@
+
+//Modifier l'image dans le carouseel
+.img_caroussel{
+  height: 400px;
+  width: 100%;
+  object-fit: cover;
+}
+
+//Modifier le container du caroussel
+.container-img{
+  padding-right: 0;
+  padding-left: 0;
+}
+

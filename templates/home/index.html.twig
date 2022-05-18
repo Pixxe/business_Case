@@ -1,0 +1,15 @@
+{% extends 'base-front.html.twig' %}
+
+{% block title %}Hello HomeController!{% endblock %}
+
+{% block body %}
+    {% include 'home/_caroussel.html.twig' %}
+    <div class="container-fluid bg-green">
+        <h1 class="text-center">Nos meilleures ventes</h1>
+        <div class="row">
+            {% for product in bestSellersProductArray %}
+                {% include 'home/_card_best_sellers.html.twig' %}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
