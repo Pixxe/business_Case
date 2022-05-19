@@ -1,0 +1,33 @@
+{% extends 'base-front.html.twig' %}
+
+{% block title %}Mon Panier{% endblock %}
+
+{% block body %}
+<table>
+    <tr>
+        <td><h3>Liste des articles</h3></td>
+    </tr>
+
+
+
+    {% if countProduct == 0 %}
+        <h2>Vous n'avez aucun article dans votre panier</h2>
+    {% else %}
+        <h2>Vous avez actuellement {{ countProduct }} articles dans votre panier</h2>
+        {% for product in basket.products %}
+
+        <tr>
+            <td>{{ product.label }}</td>
+        </tr>
+            <tr>
+                <td><a class="btn btn-green" href="{{ path('app_basket_delete', {'id':product.id}) }}">Supprimer</a> </td>
+            </tr>
+        {% endfor %}
+    {% endif %}
+</table>
+
+<hr>
+<h3>Montant total : <strong>{{ basket.totalPrice }}€</strong></h3>
+
+
+{% endblock %}

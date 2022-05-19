@@ -128,4 +128,16 @@ class CommandRepository extends ServiceEntityRepository
             ->setParameter('date_max', $maxDate)
             ->getQuery()->getResult();
     }
+
+    public function getBasketByUser($user){
+        return $this->createQueryBuilder('c')
+            ->join('c.user','cu')
+            ->where("c.user = :user")
+            ->andWhere('c.status = 100')
+            ->setParameter('user', $user)
+            ->setMaxResults(1)
+            ->getQuery()
+            ->getOneOrNullResult();
+
+    }
 }

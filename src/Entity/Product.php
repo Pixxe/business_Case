@@ -141,7 +141,9 @@ class Product
     #[Groups(['product'])]
     private $reviews;
 
-    #[ORM\OneToMany(mappedBy: 'product', targetEntity: ProductPicture::class)]
+    //Losque l'on supprime un produit, on veut également supprimer son image on utilise donc cascade: ['remove'])
+    //Si on veut l'ajouter on utilise persist cascade: ['persist'])]
+    #[ORM\OneToMany(mappedBy: 'product', targetEntity: ProductPicture::class, cascade: ['remove','persist'])]
     #[Groups(['product'])]
     private $productPictures;
 

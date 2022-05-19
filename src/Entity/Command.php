@@ -84,7 +84,7 @@ class Command
     #[Groups(['address', 'command', 'product', 'user'])]
     private $totalPrice;
 
-    #[ORM\Column(type: 'integer')]
+    #[ORM\Column(type: 'string')]
     #[
         Assert\Type(
             type: 'string',
@@ -138,7 +138,7 @@ class Command
     private $status;
 
     #[ORM\ManyToOne(targetEntity: Address::class, inversedBy: 'commands')]
-    #[ORM\JoinColumn(nullable: false)]
+    #[ORM\JoinColumn(nullable: true)]
     #[Groups(['command'])]
     private $address;
 
@@ -173,12 +173,12 @@ class Command
         return $this;
     }
 
-    public function getNumCommand(): ?int
+    public function getNumCommand(): ?string
     {
         return $this->numCommand;
     }
 
-    public function setNumCommand(int $numCommand): self
+    public function setNumCommand(string $numCommand): self
     {
         $this->numCommand = $numCommand;
 
