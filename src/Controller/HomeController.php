@@ -36,7 +36,7 @@ class HomeController extends AbstractController
         foreach ($bestSellersProduct as $product){
             array_push($products ,$product[0]);
         }
-        dump($bestSellersProduct);
+//        dump($bestSellersProduct);
 
 //        $user = $this->getUser();
 //        if($user){
