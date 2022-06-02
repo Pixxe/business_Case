@@ -38,9 +38,13 @@ class HomeController extends AbstractController
         }
         dump($bestSellersProduct);
 
-        $user = $this->getUser();
-        $basket = $this->basketService->getBasket($user);
-        dump($basket);
+//        $user = $this->getUser();
+//        if($user){
+//            $basket = $this->basketService->getBasket($user);
+//            dump($basket);
+//        }
+
+
 
 
 

@@ -32,10 +32,15 @@ class BasketController extends AbstractController
     public function index(): Response
     {
         $user = $this->getUser();
-        $basket = $this->basketService->getBasket($user);
-        dump($basket);
 
-        $countProduct = count($basket->getProducts());
+                if($user !== null){
+                    $basket = $this->basketService->getBasket($user);
+                    dump($basket);
+                    $countProduct = count($basket->getProducts());
+                }else {
+                    $this->redirectToRoute('app_register');
+                }
+
 
         return $this->render('basket/index.html.twig', [
             'basket' => $basket,
